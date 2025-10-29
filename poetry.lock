@@ -50,6 +50,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-extensions"
+version = "4.1"
+description = "Extensions for Django"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "django_extensions-4.1-py3-none-any.whl", hash = "sha256:0699a7af28f2523bf8db309a80278519362cd4b6e1fd0a8cd4bf063e1e023336"},
+    {file = "django_extensions-4.1.tar.gz", hash = "sha256:7b70a4d28e9b840f44694e3f7feb54f55d495f8b3fa6c5c0e5e12bcb2aa3cdeb"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+
+[[package]]
 name = "django-rest-framework"
 version = "0.1.0"
 description = "alias."
@@ -221,4 +236,4 @@ markers = {main = "sys_platform == \"win32\""}
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "01c7e75260df2805a4d23b7d1d5808af432ae8efe1ae374efb3c37b92fe8f263"
+content-hash = "f21443ce271d1cb1450e58487010acfeb8ffceba029a71740ef78d2c83e9265b"
