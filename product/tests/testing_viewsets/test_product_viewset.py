@@ -25,11 +25,11 @@ class TestProductViewSet(APITestCase):
         response = self.client.get(reverse('product-list', kwargs={'version': 'v1'}))
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        product_data = json.loads(response.content)
+        product_data = json.loads(response.content)["results"][0]
 
-        self.assertEqual(product_data[0]['title'], self.product.title)
-        self.assertEqual(product_data[0]['price'], self.product.price)
-        self.assertEqual(product_data[0]['active'], self.product.active)
+        self.assertEqual(product_data['title'], self.product.title)
+        self.assertEqual(product_data['price'], self.product.price)
+        self.assertEqual(product_data['active'], self.product.active)
 
     def test_create_product(self):
         category = CategoryFactory()
