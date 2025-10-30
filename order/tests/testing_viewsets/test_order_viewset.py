@@ -27,7 +27,7 @@ class TestOrderViewSet(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        order_data = json.loads(response.content)[0]
+        order_data = json.loads(response.content)["results"][0]
         self.assertEqual(order_data['product'][0]['title'], self.product.title)
         self.assertEqual(order_data['product'][0]['price'], self.product.price)
         self.assertEqual(order_data['product'][0]['active'], self.product.active)
