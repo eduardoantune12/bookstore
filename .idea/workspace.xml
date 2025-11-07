@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9734c6a3-75ad-4a4c-9c81-5e5a11b5d721" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookstore/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookstore/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookstore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookstore/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/tests/testing_viewsets/test_order_viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/tests/testing_viewsets/test_order_viewset.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order/viewsets/order_viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/viewsets/order_viewset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/tests/testing_viewsets/test_product_viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/tests/testing_viewsets/test_product_viewset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/viewsets/category_viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/viewsets/category_viewset.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product/viewsets/product_viewset.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/viewsets/product_viewset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,5 +61,16 @@
       <updated>1760979386657</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/order/viewsets/order_viewset.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
