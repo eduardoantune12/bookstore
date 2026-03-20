@@ -6,7 +6,7 @@ description = "Bookstore API"
 authors = [
     {name = "Eduardo",email = "eduardoantune12@gmail.com"}
 ]
-readme = "README.md"
+# readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "django (>=5.2.7,<6.0.0)",
