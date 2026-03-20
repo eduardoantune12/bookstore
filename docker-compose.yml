@@ -1,11 +1,9 @@
-version: '3.9'
-
 services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/usr/src/app/
+      - .:/app/
     ports:
       - 8000:8000
     env_file:
@@ -16,12 +14,18 @@ services:
       - db
   db:
     image: postgres:15-alpine
+    container_name: bookstore_db
+    ports:
+      - 5444:5432
+    env_file:
+      - env.dev
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=dev
-      - POSTGRES_PASSWORD=dev
+      - POSTGRES_PASSWORD=bookstore_dev
       - POSTGRES_DB=bookstore_db
+      - POSTGRES_HOST_AUTH_METHOD=trust
     networks:
       - backend
 networks:
@@ -30,3 +34,4 @@ networks:
 
 volumes:
   postgres_data:
+  app_data:
