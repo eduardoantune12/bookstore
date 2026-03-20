@@ -1,14 +1,18 @@
 name: Python Pull Request Workflow
 on: [pull_request]
-jobs:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
   qa:
     name: Quality check
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@master
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
       - name: Install poetry
@@ -27,8 +31,14 @@ jobs:
         run: python -m poetry install
 
       - name: Test
+        env:
+          SECRET_KEY: "django-insecure-test-key-only"
+          DEBUG: "1"
+          DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1"
+          SQL_ENGINE: "django.db.backends.sqlite3"
         run: |
           poetry run python manage.py test
+
       - name: Wemake Python Stylguide
         uses: wemake-services/wemake-python-styleguide@0.16.0
         continue-on-error: true
