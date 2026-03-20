@@ -1,6 +1,7 @@
 [project]
 name = "bookstore"
 version = "0.1.0"
+package-mode = false
 description = "Bookstore API"
 authors = [
     {name = "Eduardo",email = "eduardoantune12@gmail.com"}
