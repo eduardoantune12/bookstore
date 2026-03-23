@@ -29,31 +29,31 @@ ENV PYTHONUNBUFFERED=1 \
 
 
 # prepend poetry and venv to path
-ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+# 1. Ajuste do PATH (removemos o VENV_PATH que não vamos usar)
+ENV PATH="$POETRY_HOME/bin:$PATH"
 
+# 2. Instalação de dependências do sistema
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
-        # deps for installing poetry
         curl \
-        # deps for building python deps
-        build-essential
+        build-essential \
+        libpq-dev \
+        gcc
 
-# install poetry - respects $POETRY_VERSION & $POETRY_HOME
+# 3. Instala o Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-RUN apt-get update \
-    && apt-get -y install libpq-dev gcc \
-    && pip install psycopg2
+# 4. Configura o Poetry para instalar TUDO no Python global do container
+RUN poetry config virtualenvs.create false
 
-# copy project requirement files here to ensure they will be cached.
-WORKDIR $PYSETUP_PATH
-COPY poetry.lock pyproject.toml ./
-
-# quicker install as runtime deps are already installed
-RUN  poetry install --no-root
-
+# 5. Define a pasta de trabalho como /app (a mesma do seu docker-compose)
 WORKDIR /app
 
+# 6. Copia os arquivos de dependência e instala
+COPY poetry.lock pyproject.toml /app/
+RUN poetry install --no-root
+
+# 7. Copia o resto do código do seu projeto
 COPY . /app/
 
 EXPOSE 8000
